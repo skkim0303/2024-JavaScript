@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>onClick Event</title>
+</head>
+<body>
+
+  <!-- <button onclick="alert('hello')">버튼</button> -->
+
+  <button id="one">버튼1</button><br><br><br>
+
+  <button id="two">버튼2</button><br><br><br>
+
+  <h1 id="h1"></h1>  
+  <button id="three">버튼3</button><br><br><br>
+  
+  <button id="four">버튼4</button>
+  <p id="result"></p>
+
+
+  <script>
+
+    const btn1 = document.getElementById('one');
+    const btn2 = document.getElementById('two');    
+    const btn3 = document.getElementById('three');
+    const btn4 = document.getElementById('four');
+    
+    
+    const resultContents = document.getElementById('result');
+
+    const clickEvent = function() {
+      if(btn4) {
+        resultContents.textContent = 'Very Nice!';
+        btn4.style.display = 'none';
+      }
+    }
+    
+    btn4.addEventListener('click', clickEvent);
+
+
+    const ifClick = function() {
+      if(btn1) {
+        console.log('Very Nice~');
+      }
+      return;
+    }
+    
+    btn1.addEventListener('click', ifClick);
+
+
+    const testClick = function(e) {
+      console.log('Hello Click');
+      console.log(e.target);
+    };
+    
+    btn2.addEventListener('click', testClick);
+    // btn2.removeEventListener('click', testClick);
+    
+
+
+    const innerClcik = () => {
+      h1.innerHTML = '그냥 보이기';
+      h1.textContent = '그냥 보이기2';
+    }
+
+    btn3.addEventListener('click', innerClcik);
+
+
+  </script>
+  
+</body>
+</html>
