@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>구구단</title>
+</head>
+<body>
+
+  <div id="random"></div>
+  <form id="multipleForm">
+    <input type="number" value="">
+    <button type="submit">확인</button>
+  </form>
+  <div id="result"></div>
+  <div id="result2"></div>
+
+  <script>
+    const random = document.querySelector('#random');
+    const result = document.querySelector('#result');
+    const result2 = document.querySelector('#result2');
+    const form = document.querySelector('#multipleForm');
+    const input = document.querySelector('input');
+    
+    let num1 = Math.ceil(Math.random() * 9);
+    let num2 = Math.ceil(Math.random() * 9);
+    let multiple = num1 * num2;
+
+    random.textContent = String(num1) + '곱하기' + String(num2) + '= ?'; 
+
+    const submitForm = (e) => {
+      e.preventDefault();
+      if (multiple === Number(input.value)) {        
+        result.textContent = '입력한 값:' + input.value;
+        result2.textContent = '딩동댕';
+        num1 = Math.ceil(Math.random() * 9);
+        num2 = Math.ceil(Math.random() * 9);
+        multiple = num1 * num2;
+        random.textContent = String(num1) + '곱하기' + String(num2) + '= ?';
+        input.value = '';
+      }
+      else {
+        result.textContent = '입력한 값:' + input.value;
+        result2.textContent = '땡';
+        input.value = '';
+      }
+    };
+
+    form.addEventListener('submit', submitForm);
+  </script>
+  
+</body>
+</html>
